@@ -10,11 +10,14 @@ const BusinessFooter = () => (
             Ingeniería de software ultra-optimizada para computadoras de bajo
             rendimiento y hardware legacy.
           </p>
+          <div className="mt-1 font-mono text-[11px] text-cyan-400">
+            📍 Sede Operativa: Cabimas, Estado Zulia, Venezuela
+          </div>
         </div>
 
         <div className="text-center sm:text-right">
           <div className="font-semibold text-gray-300">
-            Equipo Técnico Fundador:
+            Equipo Técnico Fundador (Cabimas, Zulia):
           </div>
           <div className="mt-1 font-mono text-[11px] text-gray-400">
             Reinaldo Villegas • Abdiel Bustamante • Isaac Bastidas • Jesús

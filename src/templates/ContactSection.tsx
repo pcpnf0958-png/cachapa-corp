@@ -50,6 +50,9 @@ const ContactSection = () => {
                 <div className="text-white">
                   División de Software Legacy & Computación Eficiente
                 </div>
+                <div className="mt-0.5 text-xs text-cyan-400">
+                  📍 Cabimas, Estado Zulia, Venezuela
+                </div>
               </div>
               <div>
                 <div className="text-xs text-gray-500">Garantía Cachapa:</div>
