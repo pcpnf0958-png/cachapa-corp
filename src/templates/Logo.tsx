@@ -5,32 +5,41 @@ type ILogoProps = {
 };
 
 const Logo = (props: ILogoProps) => {
-  const size = props.xl ? '44' : '32';
+  const size = props.xl ? '36' : '28';
   const fontStyle = props.xl
-    ? 'font-semibold text-3xl'
-    : 'font-semibold text-xl';
+    ? 'font-bold text-2xl tracking-tight'
+    : 'font-semibold text-lg tracking-tight';
 
   return (
-    <span className={`inline-flex items-center text-gray-900 ${fontStyle}`}>
-      <svg
-        className="mr-1 stroke-current text-primary-500"
-        xmlns="http://www.w3.org/2000/svg"
-        width={size}
-        height={size}
-        viewBox="0 0 24 24"
-        strokeWidth="1.5"
-        fill="none"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M0 0h24v24H0z" stroke="none" />
-        <rect x="3" y="12" width="6" height="8" rx="1" />
-        <rect x="9" y="8" width="6" height="12" rx="1" />
-        <rect x="15" y="4" width="6" height="16" rx="1" />
-        <path d="M4 20h14" />
-      </svg>
-
-      {AppConfig.site_name}
+    <span className={`inline-flex items-center text-white ${fontStyle}`}>
+      <span className="mr-2.5 flex size-9 items-center justify-center rounded-lg border border-cyan-500/30 bg-gradient-to-br from-cyan-900/60 to-blue-950/80 text-cyan-400 shadow-md shadow-cyan-500/10">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width={size}
+          height={size}
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <rect x="4" y="4" width="16" height="16" rx="2" />
+          <rect x="9" y="9" width="6" height="6" />
+          <path d="M9 1v3" />
+          <path d="M15 1v3" />
+          <path d="M9 20v3" />
+          <path d="M15 20v3" />
+          <path d="M20 9h3" />
+          <path d="M20 14h3" />
+          <path d="M1 9h3" />
+          <path d="M1 14h3" />
+        </svg>
+      </span>
+      <span>
+        {AppConfig.site_name}
+        <span className="ml-1.5 text-xs font-semibold text-cyan-400">.dev</span>
+      </span>
     </span>
   );
 };

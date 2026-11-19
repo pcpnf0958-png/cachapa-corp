@@ -7,13 +7,13 @@ type INavbarProps = {
 };
 
 const NavbarTwoColumns = (props: INavbarProps) => (
-  <div className="flex flex-wrap items-center justify-between">
+  <div className="flex flex-wrap items-center justify-between gap-y-4">
     <div>
       <Link href="/">{props.logo}</Link>
     </div>
 
     <nav>
-      <ul className="navbar flex items-center text-xl font-medium text-gray-800">
+      <ul className="navbar flex flex-wrap items-center text-sm font-medium text-gray-300">
         {props.children}
       </ul>
     </nav>
@@ -21,11 +21,11 @@ const NavbarTwoColumns = (props: INavbarProps) => (
     <style jsx>
       {`
         .navbar :global(li:not(:first-child)) {
-          @apply mt-0;
+          @apply ml-6;
         }
 
-        .navbar :global(li:not(:last-child)) {
-          @apply mr-5;
+        .navbar :global(a) {
+          @apply transition-colors duration-150 hover:text-cyan-400;
         }
       `}
     </style>

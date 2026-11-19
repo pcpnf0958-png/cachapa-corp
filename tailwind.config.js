@@ -1,5 +1,6 @@
 module.exports = {
   content: ['./src/**/*.{js,ts,jsx,tsx}'],
+  darkMode: 'class',
   theme: {
     fontSize: {
       xs: '0.75rem',
@@ -36,6 +37,7 @@ module.exports = {
           700: '#4a5568',
           800: '#2d3748',
           900: '#1a202c',
+          950: '#0b0f19',
         },
       },
       lineHeight: {
