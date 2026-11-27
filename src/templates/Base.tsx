@@ -1,23 +1,25 @@
 import { Meta } from '../layout/Meta';
+import { RetroContact } from '../retro/RetroContact';
+import { RetroFooter } from '../retro/RetroFooter';
+import { RetroHeader } from '../retro/RetroHeader';
+import { RetroHero } from '../retro/RetroHero';
+import { RetroLetter } from '../retro/RetroLetter';
+import { RetroServices } from '../retro/RetroServices';
+import { RetroTeam } from '../retro/RetroTeam';
 import { AppConfig } from '../utils/AppConfig';
-import { BusinessFooter } from './BusinessFooter';
-import { BusinessHeader } from './BusinessHeader';
-import { ContactSection } from './ContactSection';
-import { PresentationLetter } from './PresentationLetter';
-import { ServicesGrid } from './ServicesGrid';
-import { TeamProfiles } from './TeamProfiles';
 
 const Base = () => (
-  <div className="min-h-screen bg-[#070b14] text-gray-300 antialiased selection:bg-cyan-500 selection:text-gray-950">
+  <div className="min-h-screen bg-[#0a0a0a] font-mono text-[#c0c0c0] antialiased">
     <Meta title={AppConfig.title} description={AppConfig.description} />
-    <BusinessHeader />
+    <RetroHeader />
     <main>
-      <PresentationLetter />
-      <ServicesGrid />
-      <TeamProfiles />
-      <ContactSection />
+      <RetroHero />
+      <RetroLetter />
+      <RetroServices />
+      <RetroTeam />
+      <RetroContact />
     </main>
-    <BusinessFooter />
+    <RetroFooter />
   </div>
 );
 

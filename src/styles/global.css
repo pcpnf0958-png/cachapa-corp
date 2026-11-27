@@ -2,10 +2,250 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --cc-beige: #d4d0c8;
+  --cc-beige-light: #e8e6e1;
+  --cc-silver: #c0c0c0;
+  --cc-navy: #000080;
+  --cc-navy-light: #1084d0;
+  --cc-desktop: #008080;
+  --cc-screen: #0a0a0a;
+  --cc-amber: #ffb000;
+  --cc-green: #33ff33;
+}
+
 html {
   color-scheme: dark;
+  scroll-behavior: smooth;
 }
 
 body {
-  @apply bg-[#0b0f19] text-gray-300;
+  @apply bg-[#0a0a0a] font-mono text-[#c0c0c0];
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0) 0px,
+      rgba(0, 0, 0, 0) 2px,
+      rgba(0, 0, 0, 0.22) 3px,
+      rgba(0, 0, 0, 0) 4px
+    ),
+    radial-gradient(
+      ellipse at center,
+      rgba(16, 132, 208, 0.06) 0%,
+      rgba(0, 0, 0, 0) 70%
+    );
+  text-rendering: optimizeSpeed;
+}
+
+::selection {
+  background: var(--cc-navy);
+  color: #ffffff;
+}
+
+*:focus-visible {
+  outline: 2px solid var(--cc-amber);
+  outline-offset: 2px;
+}
+
+/* ── Classic Windows chrome ─────────────────────────────── */
+
+.cc-window {
+  background: var(--cc-beige);
+  border: 2px solid;
+  border-color: #ffffff #404040 #404040 #ffffff;
+  box-shadow:
+    inset 1px 1px 0 0 #dfdfdf,
+    inset -1px -1px 0 0 #808080,
+    4px 4px 0 0 rgba(0, 0, 0, 0.45);
+}
+
+.cc-window-outset {
+  border: 2px solid;
+  border-color: #dfdfdf #808080 #808080 #dfdfdf;
+}
+
+.cc-window-sunken {
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+  background: #ffffff;
+}
+
+.cc-field {
+  background: #ffffff;
+  color: #000000;
+  border: 2px solid;
+  border-color: #808080 #ffffff #ffffff #808080;
+}
+
+.cc-field:focus {
+  outline: none;
+  border-color: #404040 #808080 #808080 #404040;
+}
+
+.cc-titlebar {
+  background: linear-gradient(90deg, var(--cc-navy) 0%, var(--cc-navy-light) 100%);
+  color: #ffffff;
+  font-family: 'Silkscreen', 'Courier New', monospace;
+  font-weight: 700;
+}
+
+/* ── Retro button ───────────────────────────────────────── */
+
+.cc-btn {
+  background: var(--cc-silver);
+  color: #000000;
+  border: 2px solid;
+  border-color: #ffffff #404040 #404040 #ffffff;
+  box-shadow:
+    inset 1px 1px 0 0 #dfdfdf,
+    inset -1px -1px 0 0 #808080;
+  font-family: 'Silkscreen', 'Courier New', monospace;
+}
+
+.cc-btn:hover {
+  background: #d4d0c8;
+}
+
+.cc-btn:active {
+  border-color: #404040 #ffffff #ffffff #404040;
+  box-shadow: none;
+}
+
+.cc-btn-primary {
+  background: var(--cc-navy);
+  color: #ffffff;
+  border-color: #dfdfdf #000000 #000000 #dfdfdf;
+  box-shadow:
+    inset 1px 1px 0 0 #1084d0,
+    inset -1px -1px 0 0 #000040;
+}
+
+.cc-btn-primary:hover {
+  background: var(--cc-navy-light);
+}
+
+.cc-btn-primary:active {
+  border-color: #000000 #1084d0 #1084d0 #000000;
+  box-shadow: none;
+}
+
+/* ── CRT screen ─────────────────────────────────────────── */
+
+.cc-crt {
+  background: var(--cc-screen);
+  position: relative;
+  overflow: hidden;
+}
+
+.cc-crt::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0) 0px,
+    rgba(0, 0, 0, 0) 1px,
+    rgba(0, 0, 0, 0.35) 2px,
+    rgba(0, 0, 0, 0) 3px
+  );
+  z-index: 10;
+}
+
+.cc-crt-glow {
+  text-shadow:
+    0 0 3px currentColor,
+    0 0 8px currentColor;
+}
+
+/* ── Pixel display face ─────────────────────────────────── */
+
+.cc-pixel {
+  font-family: 'Silkscreen', 'Courier New', monospace;
+  letter-spacing: 0.02em;
+}
+
+.cc-terminal {
+  font-family: 'VT323', 'Courier New', monospace;
+}
+
+/* ── Tiled checkerboard backdrop ────────────────────────── */
+
+.cc-tile {
+  background-color: #0d0d0d;
+  background-image:
+    linear-gradient(45deg, #151515 25%, transparent 25%),
+    linear-gradient(-45deg, #151515 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #151515 75%),
+    linear-gradient(-45deg, transparent 75%, #151515 75%);
+  background-size: 16px 16px;
+  background-position:
+    0 0,
+    0 8px,
+    8px -8px,
+    -8px 0;
+}
+
+/* ── Blink cursor ───────────────────────────────────────── */
+
+.cc-cursor::after {
+  content: '▌';
+  animation: cc-blink 1.06s step-end infinite;
+  color: var(--cc-green);
+}
+
+@keyframes cc-blink {
+  0%,
+  49% {
+    opacity: 1;
+  }
+  50%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* ── Marquee ────────────────────────────────────────────── */
+
+.cc-marquee {
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.cc-marquee > span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: cc-scroll 22s linear infinite;
+}
+
+@keyframes cc-scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cc-marquee > span {
+    animation: none;
+    padding-left: 0;
+  }
+
+  .cc-cursor::after {
+    animation: none;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }

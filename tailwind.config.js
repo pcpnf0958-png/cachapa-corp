@@ -15,7 +15,38 @@ module.exports = {
       '6xl': '4rem',
     },
     extend: {
+      fontFamily: {
+        pixel: ['Silkscreen', 'Courier New', 'monospace'],
+        term: ['VT323', 'Courier New', 'monospace'],
+        mono: ['IBM Plex Mono', 'Courier New', 'monospace'],
+        sans: ['IBM Plex Sans', 'system-ui', 'sans-serif'],
+      },
       colors: {
+        beige: {
+          DEFAULT: '#d4d0c8',
+          light: '#e8e6e1',
+          dark: '#b0aca4',
+        },
+        silver: {
+          DEFAULT: '#c0c0c0',
+          light: '#dfdfdf',
+          dark: '#808080',
+        },
+        navy: {
+          DEFAULT: '#000080',
+          light: '#1084d0',
+          dark: '#000040',
+        },
+        teal: {
+          DEFAULT: '#008080',
+          light: '#00a0a0',
+          dark: '#004040',
+        },
+        crt: {
+          DEFAULT: '#0a0a0a',
+          green: '#33ff33',
+          amber: '#ffb000',
+        },
         primary: {
           100: '#E6F6FE',
           200: '#C0EAFC',
@@ -42,6 +73,10 @@ module.exports = {
       },
       lineHeight: {
         hero: '4.5rem',
+      },
+      boxShadow: {
+        bezel: '4px 4px 0 0 rgba(0,0,0,0.45)',
+        crt: 'inset 0 0 60px 0 rgba(0,0,0,0.9)',
       },
     },
   },
